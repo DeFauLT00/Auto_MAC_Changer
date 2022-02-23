@@ -18,19 +18,19 @@ int main (void) {
 	system("ifconfig -s");
 
 	printf("\n >>> Inserire l'interfaccia desiderata [Iface]: ");
-	scanf("%s", interfaccia);										// prendo in input il nome dell'interfaccia inserita.
+	scanf("%s", interfaccia);							// prendo in input il nome dell'interfaccia inserita.
 
 	sprintf(comando, "ifconfig %s down", interfaccia);				
-	system(comando);												// spengo l'interfaccia.
+	system(comando);								// spengo l'interfaccia.
 
 	sprintf(comando, "macchanger --random %s", interfaccia);		
-	system(comando);												// utilizzo macchanger per eseguire lo spoofing del MAC.
+	system(comando);								// utilizzo macchanger per eseguire lo spoofing del MAC.
 
 
-	system("service network-manager restart");						// restart dei servizi di rete.
+	system("service network-manager restart");					// restart dei servizi di rete.
 
 	sprintf(comando, "ifconfig %s up", interfaccia);				
-	system(comando);												// accendo l'interfaccia che era stata spenta.
+	system(comando);								// accendo l'interfaccia che era stata spenta.
 
 	printf("\n");
 	return 0;
